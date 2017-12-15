@@ -44,7 +44,6 @@ d'un des 4 fichiers principaux.
 Voici les relations:
 Bouton Pond--> Fichier sypond42.m
 Bouton Synth?se--> Fichier syhinf4.m
-Bouton Crit?re--> Fichier sytrah42.m
 Bouton Analyse--> Fichier syana.42
 
 
@@ -55,17 +54,6 @@ Dans un premier temps, une renum?rotation des blocs est effectu?e en cas ou l'ut
 syhinf4: Ce fichier est le plus complexe de l'ensemble et le plus intensive algorithmiquement.
 
 La fonction "linmod" est utilis?e pour obtenir une repr?sentation d'?tat du sch?ma bloc, et en utilisant certaines lignes et colonnes des matrices de cette d?composition d'?tat, le probl?me est mis sous forme standard en construisant la Matrice P. Cette matrice est produit en concat?nant certaines lignes et colonnes des matrices d'?tat en utilisant la fonction pck. Cette matrice P est pass?e comme param?tre d'entr?e de la fonction "hinfsyn" qui calcule algorithmiquement le correcteur que l'on recherche, ? condition que le syst?me soit commandable.
-
-sytrah42: Fichier qui nous permet de visualiser toutes les fonctions de sensibilit?s appartenant au sch?ma construit par l'utilisateur. Parmi les sorties de la fonction "hinfsyn" se trouve le syst?me repr?sentant le sch?ma bloc entier en boucle ferm?e, sous forme de matrice. On remarque que cette matrice contient des ?l?ments consistant de produits entres fonctions de sensibilit?s et pond?rations et donc les fonctions de sensibilit?s sont extraite en utilisant une approche it?rative en multiplier cette matrice avec des  matrices diagonales avec comme ?l?ments l'inverse des pond?ration.
-
-Exemple:
-
-| 1/w1      0   |      | w1*S          w1*GS*w3|        |  1	        0     |           | S               GS |
-|                    |  x  |                                      |  x     |                       |    =    |                         |
-|   0      1/w2 |      | w2*KS         w2*T*w3|         |  0           1/w3|           |KS               T  |
-
-
-Le fichier termine par l'affichage de fonctions de sensibilit?s ainsi d?riv?es sur le m?me graphique que celui des pond?rations.
 
 syana4.m: Fichier utilis? pour l'analyse du correcteur propos?, afin d'en d?duire sa forme. Ceci est fait par les affichages graphiques suivants:
 

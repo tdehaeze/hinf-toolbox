@@ -1,12 +1,51 @@
 Model {
-  Name			  "sim4"
+  Name			  "test"
   Version		  9.0
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
-    NumRootInports	    0
-    NumRootOutports	    0
+    NumRootInports	    3
+    Inport {
+      Name		      "w1"
+      BusObject		      ""
+      OutputFunctionCall      "off"
+      SampleTime	      "-1"
+      UnitExpr		      "inherit"
+    }
+    Inport {
+      Name		      "w2"
+      BusObject		      ""
+      OutputFunctionCall      "off"
+      SampleTime	      "-1"
+      UnitExpr		      "inherit"
+    }
+    Inport {
+      Name		      "u1"
+      BusObject		      ""
+      OutputFunctionCall      "off"
+      SampleTime	      "-1"
+      UnitExpr		      "inherit"
+    }
+    NumRootOutports	    3
+    Outport {
+      Name		      "z1"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      UnitExpr		      "inherit"
+    }
+    Outport {
+      Name		      "z2"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      UnitExpr		      "inherit"
+    }
+    Outport {
+      Name		      "y1"
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      UnitExpr		      "inherit"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.37"
+    ComputedModelVersion    "1.102"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -16,23 +55,11 @@ Model {
     HasTerminateEvent	    0
     IsExportFunctionModel   0
     NumParameterArguments   0
-    NumExternalFileReferences 3
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Repeating\nSequence"
-      Path		      "sim4/Repeating Sequence"
-      SID		      "32"
-      Type		      "LIBRARY_BLOCK"
-    }
+    NumExternalFileReferences 1
     ExternalFileReference {
       Reference		      "cstblocks/LTI System"
-      Path		      "sim4/correcteur"
-      SID		      "10"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "cstblocks/LTI System"
-      Path		      "sim4/systeme"
-      SID		      "12"
+      Path		      "test/plant"
+      SID		      "8"
       Type		      "LIBRARY_BLOCK"
     }
     OrderedModelArguments   1
@@ -63,7 +90,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [128.0, 20.0, 882.0, 670.0]
+      Location		      [338.0, 87.0, 819.0, 551.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -87,9 +114,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[828.0, 519.0]
-	ZoomFactor		[1.25]
-	Offset			[67.921875, -1.1124942243099269]
+	Extents			[765.0, 400.0]
+	ZoomFactor		[1.1578793099864797]
+	Offset			[-37.091070182576686, 37.667305203352925]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -109,23 +136,23 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAANiAAACIgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAMjAAABqwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAL9/////wAAAAAAAAAA/"
-      "////wEAAAMs/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAALF/////wAAAAAAAAAA/"
+      "////wEAAAL0/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
-  Created		  "Wed Dec 04 14:47:06 2002"
+  Created		  "Sat Feb 09 19:18:07 2002"
   Creator		  "gscorlet"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "DEHAEZE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 14 16:13:50 2017"
-  RTWModifiedTimeStamp	  435165415
-  ModelVersionFormat	  "1.%<AutoIncrement:37>"
+  LastModifiedDate	  "Fri Dec 15 16:28:12 2017"
+  RTWModifiedTimeStamp	  435256090
+  ModelVersionFormat	  "1.%<AutoIncrement:102>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -177,11 +204,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "sim4"
+    model_		    "test"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "sim4"
+      Cell		      "test"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -232,7 +259,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "2"
+	  StopTime		  "10.0"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -248,14 +275,14 @@ Model {
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
 	  ConcurrentTasks	  off
-	  Solver		  "ode15s"
-	  SolverName		  "ode15s"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
 	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
 	  AlgebraicLoopSolver	  "TrustRegion"
-	  SolverInfoToggleStatus  on
+	  SolverInfoToggleStatus  off
 	  IsAutoAppliedInSIP	  off
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
@@ -300,7 +327,7 @@ Model {
 	  OutputOption		  "RefineOutputTimes"
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
-	  Refine		  "10"
+	  Refine		  "1"
 	  LoggingToFile		  off
 	  DatasetSignalFormat	  "timeseries"
 	  LoggingFileName	  "out.mat"
@@ -326,14 +353,14 @@ Model {
 	  BlockReduction	  on
 	  BooleanDataType	  off
 	  ConditionallyExecuteInputs on
-	  DefaultParameterBehavior "Tunable"
+	  DefaultParameterBehavior "Inlined"
 	  UseDivisionForNetSlopeComputation "off"
 	  UseFloatMulNetSlope	  off
 	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
-	  BufferReuse		  on
+	  BufferReuse		  off
 	  EnhancedBackFolding	  off
 	  CachingGlobalReferences off
 	  GlobalBufferReuse	  on
@@ -452,7 +479,7 @@ Model {
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
 	  ChecksumConsistencyForSSReuse	"none"
-	  InitInArrayFormatMsg	  "warning"
+	  InitInArrayFormatMsg	  "none"
 	  StrictBusMsg		  "None"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
@@ -893,8 +920,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      ""
-      CurrentDlgPage	      "Code Generation"
-      ConfigPrmDlgPosition    [ 71, 70, 951, 698 ]
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    [ 200, 85, 1080, 715 ]
     }
     PropName		    "ConfigurationSets"
   }
@@ -971,70 +998,46 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      Clock
-      DisplayTime	      off
-      Decimation	      "10"
-    }
-    Block {
-      BlockType		      Scope
-      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
-      Floating		      off
-    }
-    Block {
-      BlockType		      Sin
-      SineType		      "Time based"
-      TimeSource	      "Use simulation time"
-      Amplitude		      "1"
-      Bias		      "0"
-      Frequency		      "1"
-      Phase		      "0"
-      Samples		      "10"
-      Offset		      "0"
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      VectorParams1D	      on
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
     }
     Block {
-      BlockType		      Step
-      Time		      "1"
-      Before		      "0"
-      After		      "1"
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      VectorParams1D	      on
-      ZeroCross		      on
-    }
-    Block {
-      BlockType		      SubSystem
-      ShowPortLabels	      "FromPortIcon"
-      Permissions	      "ReadWrite"
-      PermitHierarchicalResolution "All"
-      TreatAsAtomicUnit	      off
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "-1"
-      RTWSystemCode	      "Auto"
-      RTWFcnNameOpts	      "Auto"
-      RTWFileNameOpts	      "Auto"
-      FunctionInterfaceSpec   "void_void"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      SimViewingDevice	      off
-      DataTypeOverride	      "UseLocalSettings"
-      DataTypeOverrideAppliesTo	"AllNumericTypes"
-      MinMaxOverflowLogging   "UseLocalSettings"
-      Opaque		      off
-      MaskHideContents	      off
-      SFBlockType	      "NONE"
-      GeneratePreprocessorConditionals off
-      AllowZeroVariantControls off
-      PropagateVariantConditions off
-      TreatAsGroupedWhenPropagatingVariantConditions on
-      ContentPreviewEnabled   off
-      IsWebBlock	      off
-      IsObserver	      off
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      EnsureOutportIsVirtual  off
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+      MustResolveToSignalObject	off
+      OutputWhenUnConnected   off
+      OutputWhenUnconnectedValue "0"
+      VectorParamsAs1DForOutWhenUnconnected off
     }
     Block {
       BlockType		      Sum
@@ -1053,20 +1056,17 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      ToWorkspace
-      VariableName	      "simulink_output"
-      MaxDataPoints	      "1000"
-      Decimation	      "1"
-      SaveFormat	      "Array"
-      Save2DSignal	      "Inherit from input (this choice will be removed - see release notes)"
-      FixptAsFi		      off
-      NumInputs		      "1"
-      SampleTime	      "0"
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
     }
   }
   System {
-    Name		    "sim4"
-    Location		    [128, 20, 1010, 690]
+    Name		    "test"
+    Location		    [338, 87, 1157, 638]
     Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
@@ -1074,316 +1074,114 @@ Model {
     ScreenColor		    "white"
     PaperOrientation	    "landscape"
     PaperPositionMode	    "auto"
-    PaperType		    "usletter"
-    PaperUnits		    "inches"
-    TiledPaperMargins	    [0.196850, 0.196850, 0.196850, 0.196850]
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "116"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "34"
+    SIDHighWatermark	    "16"
     Block {
-      BlockType		      Clock
-      Name		      "Clock"
+      BlockType		      Inport
+      Name		      "w1"
       SID		      "1"
-      Position		      [365, 215, 385, 235]
+      Position		      [-25, 255, -5, 275]
       ZOrder		      -1
+      BackgroundColor	      "yellow"
+      IconDisplay	      "Port number"
     }
     Block {
-      BlockType		      Scope
-      Name		      "Commande"
-      SID		      "2"
-      Ports		      [1]
-      Position		      [605, 34, 635, 66]
+      BlockType		      Inport
+      Name		      "w2"
+      SID		      "12"
+      Position		      [250, 195, 270, 215]
       ZOrder		      -2
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingSaveFormat','StructureWithTime',"
-      "'DataLoggingLimitDataPoints',true,'DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configurati"
-      "on('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-0.13753','MaxYLimReal','0.13737','Y"
-      "LabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.13753','LegendVisibility','off','XGrid',true,'YGrid',true,'"
-      "PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],"
-      "'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549"
-      ";0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647"
-      " 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedCha"
-      "nnelNames',{{}},'NumLines',1,'LineNames',{{'correcteur'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDef"
-      "aults',struct('MinYLimReal','-0.13753','MaxYLimReal','0.13737','YLabelReal','','MinYLimMag','0.00000','MaxYLimMa"
-      "g','0.13753','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTi"
-      "ckColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450980"
-      "39215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980"
-      "39215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'T"
-      "itle','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}}"
-      ",'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extm"
-      "gr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[-1243 185 -72 872"
-      "])"
-      NumInputPorts	      "1"
+      BackgroundColor	      "yellow"
+      Port		      "2"
+      IconDisplay	      "Port number"
     }
     Block {
-      BlockType		      SubSystem
-      Name		      "Double click here\nto start loading data\nand mu-syn design"
-      SID		      "3"
-      Ports		      []
-      Position		      [185, 209, 275, 241]
+      BlockType		      Inport
+      Name		      "u1"
+      SID		      "2"
+      Position		      [360, 250, 380, 270]
       ZOrder		      -3
-      BackgroundColor	      "cyan"
-      ShowName		      off
-      OpenFcn		      "figure(FIG_SIM);subplot(211); plot(temps_out, sortie_out, 'r'); grid on; title('Sortie'); subplo"
-      "t(212); plot(temps_out, comand_out, 'r-'); title('Commande'); grid on;"
-      ShowPortLabels	      "none"
-      RequestExecContextInheritance off
-      Variant		      off
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		21
-	$ClassName		"Simulink.Mask"
-	Display			"disp('Plot figure')"
-      }
-      System {
-	Name			"Double click here\nto start loading data\nand mu-syn design"
-	Location		[16, 327, 176, 584]
-	Open			off
-	PortBlocksUseCompactNotation off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"cyan"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.196850, 0.196850, 0.196850, 0.196850]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Repeating\nSequence"
-      SID		      "32"
-      Ports		      [0, 1]
-      Position		      [155, 100, 185, 130]
-      ZOrder		      1
-      LibraryVersion	      "1.401"
-      SourceBlock	      "simulink/Sources/Repeating\nSequence"
-      SourceType	      "Repeating table"
-      SourceProductName	      "Simulink"
-      SourceProductBaseCode   "SL"
-      ContentPreviewEnabled   off
-      rep_seq_t		      "[0 0.05 0.1]"
-      rep_seq_y		      "[0.06 -0.06 0.06]"
-    }
-    Block {
-      BlockType		      Sin
-      Name		      "Sine Wave"
-      SID		      "34"
-      Ports		      [0, 1]
-      Position		      [335, 25, 365, 55]
-      ZOrder		      35
-      Amplitude		      "0.05"
-      Frequency		      "2*pi*50"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Sortie"
-      SID		      "4"
-      Ports		      [2]
-      Position		      [605, 101, 635, 134]
-      ZOrder		      -5
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
-      "LoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'Serial"
-      "izedDisplays',{struct('MinYLimReal','-0.06378','MaxYLimReal','0.06484','YLabelReal','','MinYLimMag','0.00000','M"
-      "axYLimMag','0.06484','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0]"
-      ",'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0."
-      "0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0."
-      "0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215"
-      "6863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames"
-      "',{{'systeme','Repeating Sequence'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLi"
-      "mReal','-0.06378','MaxYLimReal','0.06484','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.06484','LegendV"
-      "isibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509"
-      "803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.6235294117"
-      "64706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470588"
-      "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
-      "','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'"
-      "Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Too"
-      "ls','Measurements',true,'Version','2017b')),'Version','2017b','Location',[1 76 1363 727],'VisibleAtModelOpen','o"
-      "n')"
-      NumInputPorts	      "2"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Sortie1"
-      SID		      "17"
-      Ports		      [1]
-      Position		      [375, 294, 405, 326]
-      ZOrder		      -6
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2','DataLoggingSaveFormat','StructureWithTime',"
-      "'DataLoggingLimitDataPoints',true,'DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configurati"
-      "on('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-0.000004','MaxYLimReal','0.000008',"
-      "'YLabelReal','','MinYLimMag','0.000000','MaxYLimMag','0.000008','LegendVisibility','off','XGrid',true,'YGrid',tr"
-      "ue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745098039"
-      "22],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843137"
-      "2549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411"
-      "7647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefine"
-      "dChannelNames',{{}},'NumLines',1,'LineNames',{{'Sum'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaul"
-      "ts',struct('MinYLimReal','-0.000004','MaxYLimReal','0.000008','YLabelReal','','MinYLimMag','0.000000','MaxYLimMa"
-      "g','0.000008','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesT"
-      "ickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098"
-      "039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098"
-      "039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'"
-      "Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}"
-      "},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),ext"
-      "mgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[47 110 1327 797]"
-      ")"
-      NumInputPorts	      "1"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Sortie2"
-      SID		      "33"
-      Ports		      [2]
-      Position		      [540, 236, 570, 269]
-      ZOrder		      2
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
-      "LoggingDecimation','1','DataLoggingDecimateData',true,'DataLoggingVariableName','ScopeData3'),extmgr.Configurati"
-      "on('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','0.08629','MaxYLimReal','0.11378','YL"
-      "abelReal','','MinYLimMag','0.08629','MaxYLimMag','0.11378','LegendVisibility','off','XGrid',true,'YGrid',true,'P"
-      "lotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'"
-      "ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;"
-      "0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 "
-      "1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChan"
-      "nelNames',{{}},'NumLines',2,'LineNames',{{'systeme','Repeating Sequence'}},'ShowContent',true,'Placement',1)},'D"
-      "isplayPropertyDefaults',struct('MinYLimReal','0.08629','MaxYLimReal','0.11378','YLabelReal','','MinYLimMag','0.0"
-      "8629','MaxYLimMag','0.11378','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
-      ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666"
-      "66667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725490"
-      "19608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650"
-      "980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
-      "ineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtS"
-      "top',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
-      "on','2017b','Location',[-1611 -19 -249 632],'VisibleAtModelOpen','on')"
-      NumInputPorts	      "2"
+      BackgroundColor	      "yellow"
+      Port		      "3"
+      IconDisplay	      "Port number"
     }
     Block {
       BlockType		      Sum
       Name		      "Sum"
-      SID		      "5"
+      SID		      "3"
       Ports		      [2, 1]
-      Position		      [265, 105, 285, 125]
-      ZOrder		      -7
-      BackgroundColor	      "green"
+      Position		      [125, 255, 145, 275]
+      ZOrder		      -4
       IconShape		      "round"
       Inputs		      "|+-"
-      Port {
-	PortNumber		1
-	Array {
-	  Type			  "Struct"
-	  Dimension		  1
-	  MATStruct {
-	    Type		    "out"
-	    OpenLoop		    "off"
-	    BusElementName	    ""
-	  }
-	  PropName		  "LinearAnalysisIO"
-	}
-      }
     }
     Block {
       BlockType		      Sum
       Name		      "Sum1"
-      SID		      "6"
+      SID		      "4"
       Ports		      [2, 1]
-      Position		      [420, 105, 440, 125]
-      ZOrder		      -8
-      BackgroundColor	      "green"
+      Position		      [420, 250, 440, 270]
+      ZOrder		      -5
       IconShape		      "round"
       Inputs		      "++|"
     }
     Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace"
+      BlockType		      TransferFcn
+      Name		      "input_weighting1"
+      SID		      "5"
+      Position		      [25, 245, 85, 285]
+      ZOrder		      -6
+      BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
+      Numerator		      "1"
+      Denominator	      "1"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "input_weighting2"
+      SID		      "14"
+      Position		      [290, 184, 365, 226]
+      ZOrder		      -7
+      BackgroundColor	      "yellow"
+      NamePlacement	      "alternate"
+      Numerator		      "W3.num{1}"
+      Denominator	      "W3.den{1}"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "output_weighting1"
+      SID		      "6"
+      Position		      [205, 113, 295, 147]
+      ZOrder		      -8
+      BackgroundColor	      "lightBlue"
+      NamePlacement	      "alternate"
+      Numerator		      "W1.num{1}"
+      Denominator	      "W1.den{1}"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "output_weighting2"
       SID		      "7"
-      Ports		      [1]
-      Position		      [400, 210, 460, 240]
-      ZOrder		      -10
-      VariableName	      "temps_out"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
+      Position		      [430, 98, 520, 132]
+      ZOrder		      -9
+      BackgroundColor	      "lightBlue"
+      NamePlacement	      "alternate"
+      Numerator		      "W2.num{1}"
+      Denominator	      "W2.den{1}"
     }
     Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace1"
+      BlockType		      Reference
+      Name		      "plant"
       SID		      "8"
-      Ports		      [1]
-      Position		      [505, 58, 585, 82]
-      ZOrder		      -11
-      VariableName	      "comand_out"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace2"
-      SID		      "9"
-      Ports		      [1]
-      Position		      [590, 168, 655, 192]
-      ZOrder		      -12
-      VariableName	      "sortie_out"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "correcteur"
-      SID		      "10"
       Ports		      [1, 1]
-      Position		      [315, 93, 365, 137]
-      ZOrder		      -13
-      BackgroundColor	      "green"
-      LibraryVersion	      "1.338"
-      SourceBlock	      "cstblocks/LTI System"
-      SourceType	      "LTI Block"
-      SourceProductName	      "Control System Toolbox"
-      SourceProductBaseCode   "CT"
-      ContentPreviewEnabled   off
-      sys		      "ss_k"
-      IC		      "0"
-      Port {
-	PortNumber		1
-	Array {
-	  Type			  "Struct"
-	  Dimension		  1
-	  MATStruct {
-	    Type		    "out"
-	    OpenLoop		    "off"
-	    BusElementName	    ""
-	  }
-	  PropName		  "LinearAnalysisIO"
-	}
-      }
-    }
-    Block {
-      BlockType		      Step
-      Name		      "reference1"
-      SID		      "22"
-      Position		      [255, 25, 285, 55]
-      ZOrder		      -15
-      Time		      "0.5"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "systeme"
-      SID		      "12"
-      Ports		      [1, 1]
-      Position		      [470, 93, 520, 137]
-      ZOrder		      -16
+      Position		      [475, 222, 575, 298]
+      ZOrder		      -10
       BackgroundColor	      "red"
       LibraryVersion	      "1.338"
       SourceBlock	      "cstblocks/LTI System"
@@ -1394,126 +1192,129 @@ Model {
       sys		      "f_sys"
       IC		      "[]"
     }
-    Line {
-      ZOrder		      1
-      SrcBlock		      "Sum"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	ZOrder			2
-	DstBlock		"correcteur"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			3
-	Points			[0, 195]
-	DstBlock		"Sortie1"
-	DstPort			1
-      }
+    Block {
+      BlockType		      Outport
+      Name		      "z1"
+      SID		      "9"
+      Position		      [315, 120, 335, 140]
+      ZOrder		      -11
+      BackgroundColor	      "lightBlue"
+      IconDisplay	      "Port number"
+      InitialOutput	      "0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "z2"
+      SID		      "10"
+      Position		      [540, 105, 560, 125]
+      ZOrder		      -12
+      BackgroundColor	      "lightBlue"
+      Port		      "2"
+      IconDisplay	      "Port number"
+      InitialOutput	      "0"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "y1"
+      SID		      "11"
+      Position		      [195, 255, 215, 275]
+      ZOrder		      -13
+      BackgroundColor	      "lightBlue"
+      Port		      "3"
+      IconDisplay	      "Port number"
+      InitialOutput	      "0"
     }
     Line {
-      ZOrder		      4
-      SrcBlock		      "Sum1"
+      ZOrder		      1
+      SrcBlock		      "output_weighting1"
       SrcPort		      1
-      DstBlock		      "systeme"
+      DstBlock		      "z1"
       DstPort		      1
     }
     Line {
-      ZOrder		      5
-      SrcBlock		      "correcteur"
+      ZOrder		      2
+      SrcBlock		      "w1"
       SrcPort		      1
-      Points		      [20, 0]
+      DstBlock		      "input_weighting1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      3
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      Points		      [25, 0]
       Branch {
-	ZOrder			6
+	ZOrder			4
+	DstBlock		"y1"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			5
+	Points			[0, -135]
+	DstBlock		"output_weighting1"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      6
+      SrcBlock		      "u1"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	ZOrder			7
 	DstBlock		"Sum1"
 	DstPort			2
       }
       Branch {
-	ZOrder			7
-	Points			[0, -45; 80, 0]
-	Branch {
-	  ZOrder		  8
-	  DstBlock		  "To Workspace1"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  9
-	  Points		  [0, -20]
-	  DstBlock		  "Commande"
-	  DstPort		  1
-	}
+	ZOrder			8
+	Points			[0, -145]
+	DstBlock		"output_weighting2"
+	DstPort			1
       }
     }
     Line {
-      ZOrder		      10
-      SrcBlock		      "Clock"
+      ZOrder		      9
+      SrcBlock		      "Sum1"
       SrcPort		      1
-      DstBlock		      "To Workspace"
+      DstBlock		      "plant"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      10
+      SrcBlock		      "plant"
+      SrcPort		      1
+      Points		      [31, 0; 0, 78; -476, 0]
+      DstBlock		      "Sum"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      11
+      SrcBlock		      "input_weighting1"
+      SrcPort		      1
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      12
+      SrcBlock		      "output_weighting2"
+      SrcPort		      1
+      DstBlock		      "z2"
       DstPort		      1
     }
     Line {
       ZOrder		      13
-      SrcBlock		      "systeme"
+      SrcBlock		      "w2"
       SrcPort		      1
-      Points		      [11, 0]
-      Branch {
-	ZOrder			21
-	Points			[0, 78; -7, 0; 0, 52]
-	DstBlock		"Sortie2"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			20
-	Points			[24, 0]
-	Branch {
-	  ZOrder		  14
-	  Points		  [0, 65]
-	  Branch {
-	    ZOrder		    15
-	    Points		    [-285, 0]
-	    DstBlock		    "Sum"
-	    DstPort		    2
-	  }
-	  Branch {
-	    ZOrder		    16
-	    DstBlock		    "To Workspace2"
-	    DstPort		    1
-	  }
-	}
-	Branch {
-	  ZOrder		  17
-	  Points		  [30, 0]
-	  DstBlock		  "Sortie"
-	  DstPort		  1
-	}
-      }
+      DstBlock		      "input_weighting2"
+      DstPort		      1
     }
     Line {
-      ZOrder		      49
-      SrcBlock		      "Repeating\nSequence"
+      ZOrder		      14
+      SrcBlock		      "input_weighting2"
       SrcPort		      1
-      Points		      [31, 0]
-      Branch {
-	ZOrder			46
-	Points			[0, 50; 298, 0; 0, 95]
-	DstBlock		"Sortie2"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			45
-	Points			[12, 0]
-	Branch {
-	  ZOrder		  51
-	  Points		  [0, 48; 347, 0; 0, -38]
-	  DstBlock		  "Sortie"
-	  DstPort		  2
-	}
-	Branch {
-	  ZOrder		  50
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-      }
+      Points		      [60, 0]
+      DstBlock		      "Sum1"
+      DstPort		      1
     }
   }
 }
