@@ -1,134 +1,100 @@
-function [] = hinfAnalysis()
-% trace des bode nyquist black de la boucle ouverte et du bode du correcteur.
-% Dans la fenetre Matlab, s'affiche les poles et les zeros du correcteur obtenu ainsi que la marge de gain et la marge de phase.
+function [] = hinfAnalysis(ss_f_sys, ss_k, opts_param)
+% hinfAnalysis -
+%
+% Syntax: hinfAnalysis(ss_f_sys, ss_k, opts_param)
+%
+% Inputs:
+%    - ss_f_sys   - State space representation of the plant
+%    - ss_k       - State space representation of the controller
+%    - opts_param - Optionals parameters: structure with the following fields:
+%        - simulink_name (default: test)        - Name of the Simulink System
+%        - is_ss_k_prev (default: false)        - Is there any previously generated controller
+%        - ss_k_prev                            - State space representation of the previously generated controller
+%        - lsp (default: logspace(-4, 8, 1000)) - Pulsation vector (rad/s)
 
-%% Représentation d'état du correcteur
-ss_k  = ss(Ak, Bk, Ck, Dk);
-ss_f_sys = ss(f_sys);
+%% Default values for opts
+opts = struct(  'simulink_name', 'test',...
+                'is_ss_k_prev', false, ...
+                'ss_k_prev', tf(1), ...
+                'lsp', logspace(-4, 8, 1000));
 
-%% Représentation d'etat de la boucle ouverte
-ss_bo = ss_f_sys * ss_k;
-
-if exist('ss_k_prec'),
-    if ~isempty(ss_k_prec),
-        ss_bo_prec = ss_f_sys * ss_k_prec;
+%% Populate opts with input parameters
+if exist('opts_param','var')
+    for opt = fieldnames(opts_param)'
+        opts.(opt{1}) = opts_param.(opt{1});
     end
 end
 
-%% Récupere le nombre d'entrées et de sorties du système en boucle ouverte
-[nomb_sortie,nomb_entree]=size(ss_bo);
+%% Compute some size of the system
+% Size of the controller
+[n_outputs, n_inputs] = size(ss_k);
 
-%% Bode du correcteur
-var=1;
-figure(BOD); clf;
-for o=(1:sizu)
-    for m=(1:sizy)
-        subplot(sizu,sizy,var);
-        if exist('ss_k_prec'),
-            if ~isempty(ss_k_prec),
-                bode(ss_k(o,m),'r', ss_k_prec(o,m),'b', lsp);
+% Open loop system
+ss_ol = ss_f_sys * ss_k;
+[n_outputs_ol, n_inputs_ol] = size(ss_ol);
+
+if opts.is_ss_k_prev
+    ss_ol_prev = ss_f_sys * opts.ss_k_prev;
+end
+
+%% Bode of the controller
+if opts.plot_bode_k
+    figure(opts.fig_bode_k); clf;
+    for i_output = (1:n_outputs)
+        for i_input = (1:n_inputs)
+            subplot(n_outputs, n_inputs, (i_output-1)*n_inputs+i_input);
+            if opts.is_ss_k_prev
+                bode(ss_k(i_output, i_input), 'r', opts.ss_k_prev(i_output, i_input), 'b', opts.lsp);
             else
-                bode(ss_k(o,m), 'r', lsp);
+                bode(ss_k(i_output, i_input), 'r', opts.lsp);
             end
-        else
-            bode(ss_k(o,m), 'r', lsp);
+            grid on;
+            ylabel(['Y', num2str(i_input), ' -> U', num2str(i_output)]);
+            xlabel('Frequency w (rad/s)');
+            zoom on;
         end
-        grid on;
-        ylabel(['Y', num2str(m), '->U', num2str(o)]);
-        xlabel('pulsations w');
-
-        var=var+1;
-        zoom on
     end
 end
 
-%% Bode de la boucle ouverte
-var=1;
-figure(OUVERTE); clf;
 
-for o=(1:nomb_sortie)
-    for m=(1:nomb_entree)
-        subplot(nomb_sortie,nomb_entree,var);
-        if exist('ss_k_prec'),
-            if ~isempty(ss_k_prec),
-                bode(ss_bo(o,m), 'r', ss_bo_prec(o,m), 'b', lsp);
+%% Open Loop Bode Plot
+if opts.plot_bode_ol
+    figure(fig_bode_ol); clf;
+    for i_output_ol = 1:n_outputs_ol
+        for i_input_ol = 1:n_inputs_ol
+            subplot(n_outputs_ol, n_inputs_ol, (i_output_ol-1)*n_inputs_ol+i_input_ol);
+            if opts.is_ss_k_prev
+                bode(ss_ol(i_output_ol, i_input_ol), 'r', ss_ol_prev(i_output_ol, i_input_ol), 'b', opts.lsp);
             else
-                bode(ss_bo(o,m), 'r', lsp);
+                bode(ss_ol(i_output_ol, i_input_ol), 'r', opts.lsp);
             end
-        else
-            bode(ss_bo(o,m), 'r', lsp);
+            grid on;
+            ylabel(['Y ' num2str(i_input_ol) ' --> Output ' num2str(i_output_ol)]);
+            xlabel('Frequency w (rad/s)');
+            zoom on;
         end
-        grid on;
-        ylabel(['Y' num2str(m) '--> sortie' num2str(o) 'systeme']);
-        xlabel('pulsations w');
-        var=var+1;
-        zoom on
     end
 end
 
 
-%% Nichols du système avec correcteur
-var=1;
-figure(NICH); clf;
-
-for o=(1:nomb_sortie)
-    for m=(1:nomb_entree)
-        subplot(nomb_sortie,nomb_entree,var);
-        if exist('ss_k_prec'),
-            if ~isempty(ss_k_prec),
-                nichols(ss_bo(o,m), 'r', ss_bo_prec(o,m), 'b', lsp);
+%% Nichols Plot of the Open Loop system
+if opts.plot_nichols
+    figure(opts.fig_nichols); clf;
+    for i_output_ol = 1:n_outputs_ol
+        for i_input_ol = 1:n_inputs_ol
+            subplot(n_outputs_ol, n_inputs_ol, (i_output_ol-1)*n_inputs_ol+i_input_ol);
+            if opts.is_ss_k_prev
+                nichols(ss_ol(i_output_ol, i_input_ol), 'r', ss_ol_prev(i_output_ol, i_input_ol), 'b', opts.lsp);
             else
-                nichols(ss_bo(o,m), 'r', lsp);
+                nichols(ss_ol(i_output_ol, i_input_ol), 'r', opts.lsp);
             end
-        else
-            nichols(ss_bo(o,m), 'r', lsp);
+            ylabel(['Y ' num2str(i_input_ol) ' --> Output ' num2str(i_output_ol)]);
+            ngrid;
+            grid on;
+            zoom on;
         end
-
-        ylabel(['Y' num2str(m) '--> sortie' num2str(o) 'systeme']);
-        ngrid;
-        grid on;
-        var=var+1;
-        zoom on
-        [Gm, Pm, Wcg, Wcp] = margin(ss_bo(o,m));
-        fprintf('\n y%d -> sortie système %d :marge de gain de %f dB et de phase de %f degres \n',m,o,20*log10(Gm), Pm);
     end
 end
-
-
-%% etude du correcteur K
-disp('Fonction de transfert K');
-zpk(ss_k)
-
-return
-
-%% zpk du système en boucle ferme
-var=1;
-figure(FIGZPK); clf;
-
-[aa,bb,cc,dd] = unpck(sys_hinf);
-sys_zpk=ss(aa,bb,cc,dd);
-pzmap(sys_zpk);
-sgrid;
-grid on;
-zoom on
-
-
-
-%% Simulation temporelle%
-
-var=1;
-compteur=1;
-counter=1;
-for counter=(1:siz2),
-    for compteur=(1:siz1),
-        ss_t(counter,compteur).InputName=['W', num2str(compteur)];
-        ss_t(counter,compteur).OutputName=['Z', num2str(counter)];
-    end
-end
-ltiview('step',ss_t);
-
-
-fprintf('\a Analyse termine \n');
 
 end
 

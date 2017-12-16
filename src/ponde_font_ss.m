@@ -11,6 +11,9 @@ function objss = ponde_font_ss(G0, Ginf, wc, mode)
 % Sorties :
 %   - objss : représentation d'état de la pondération correspondant au gabarit.
 
+% TODO - ajouter des parametres optionnels avec notemment la pente
+%      - Proposer de definir le temps de reponse plutot que la freq de coupure?
+%      - Proposer de donner la frequence en Hz ou en Rad/s
 
 if strcmp(mode,'dB')
     G0 = 1/(10^(G0/20));
