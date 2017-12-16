@@ -1,10 +1,11 @@
-function [weight_input, weight_output] = hinfWeighting(weight_plot, opts_param)
+function [weight_input, weight_output] = hinfWeighting(weight_plot, weight_functions, opts_param)
 % hinfWeighting - Function called when pushing the button Weighting Functions
 %
 % Syntax: hinfWeighting(weight_plot, lsp, opts_params)
 %
 % Inputs:
 %    - weight_plot - Figure object for the weighting functions
+%    - weight_functions -
 %    - opts_param  - Optionals parameters: structure with the following fields:
 %        - simulink_name (default: test)        - Name of the Simulink System
 %        - prev_weight (default: false)         - Set to true if there is some previously computed weighting functions
@@ -35,11 +36,11 @@ setParamPortNumber('u'); % Output of the controller
 setParamPortNumber('y'); % Inputs of the controller
 
 %% Computation of the Weighting Functions
-weight_input  = getWeightingFunctions('input');
-weight_output = getWeightingFunctions('output');
+weight_input  = getWeightingFunctions('input',  weight_functions, opts);
+weight_output = getWeightingFunctions('output', weight_functions, opts);
 
 %% Graphical Display of the Weighting Functions
-updateWeightingPlot(weight_plot, weight_input, weight_output, lsp, opts);
+updateWeightingPlot(weight_plot, weight_input, weight_output, opts);
 
 end
 

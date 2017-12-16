@@ -8,6 +8,9 @@ function [] = setParamPortNumber(letter, opts_param)
 %    - opts_param - Optionals parameters: structure with the following fields:
 %        - simulink_name (default: test) - Name of the Simulink System
 
+% TODO - Change variable names
+%      - Understand everything
+
 opts = struct('simulink_name', 'test');
 
 %% Populate opts with input parameters

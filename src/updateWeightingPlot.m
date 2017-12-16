@@ -36,16 +36,16 @@ for output_i = (1:weight_output_number)
         % Test if there is any previous weighting functions()
         if (opts.prev_weight)
             if (output_i <= size(opts.prev_weight_output, 2) & input_i <= size(opts.prev_weight_input, 2))
-                pond = sigma((opts.prev_weight_output(output_i) * opts.prev_weight_input(input_i)), lsp, 1);
-                semilogx(lsp, 20*log10(pond), 'b-.');
+                pond = sigma((opts.prev_weight_output(output_i) * opts.prev_weight_input(input_i)), opts.lsp, 1);
+                semilogx(opts.lsp, 20*log10(pond), 'b-.');
                 grid on;
                 hold on;
             end
         end
         
         % Plot new weighting functions
-        pond = sigma((weight_output(output_i)*weight_input(input_i)), lsp, 1);
-        semilogx(lsp, 20*log10(pond), 'r-.');
+        pond = sigma((weight_output(output_i)*weight_input(input_i)), opts.lsp, 1);
+        semilogx(opts.lsp, 20*log10(pond), 'r-.');
         grid on;
         xlabel([num2str(input_i), '->', num2str(output_i)]);
         hold on;

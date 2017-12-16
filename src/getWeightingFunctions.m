@@ -1,4 +1,4 @@
-function [weighting_fct] = getWeightingFunctions(name, opts_param)
+function [weighting_fct] = getWeightingFunctions(name, weight_functions, opts_param)
 % getWeightingFunctions - From the simulink model, get the Weighting Functions
 %
 % Syntax: getWeightingFunctions(name)
@@ -20,7 +20,7 @@ if exist('opts_param','var')
     end
 end
 
-assert(name == 'input' | name == 'output', ...
+assert(strcmp(name, 'input') | strcmp(name, 'output'), ...
     'name should be equal to input or output');
 
 % name should be input or output
@@ -28,13 +28,19 @@ sys_names = find_system(opts.simulink_name, 'RegExp', 'on', ...
                         'Name', sprintf('^%s_weighting', name));
 
 n = size(sys_names, 1);
-weighting_fct = tf(n, 1);
+weighting_fct = tf([n, 1]);
 
 % For each system, get the transfer function associated
 for i = 1:n
     num = get_param(sys_names(i), 'Numerator');
-    den = get_param(sys_names(i), 'Denominator');
-    weighting_fct(i) = tf(eval([num{1}]), eval([den{1}]));
+    if contains(num, 'num{1}')
+        tf_name = num{1}(1:end-7);
+        weighting_fct(i) = weight_functions.(tf_name);
+    else
+        den = get_param(sys_names(i), 'Denominator');
+        weighting_fct(i) = tf(eval([num{1}]), eval([den{1}]));
+    end
 end
+
 end
 
