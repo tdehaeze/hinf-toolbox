@@ -32,14 +32,10 @@ weighting_fct = tf([n, 1]);
 
 % For each system, get the transfer function associated
 for i = 1:n
+    % TODO - Verify if its a property of weight_functions (assert)
     num = get_param(sys_names(i), 'Numerator');
-    if contains(num, 'num{1}')
-        tf_name = num{1}(1:end-7);
-        weighting_fct(i) = weight_functions.(tf_name);
-    else
-        den = get_param(sys_names(i), 'Denominator');
-        weighting_fct(i) = tf(eval([num{1}]), eval([den{1}]));
-    end
+    tf_name = num{1}(1:end-7);
+    weighting_fct(i) = weight_functions.(tf_name);
 end
 
 end

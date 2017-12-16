@@ -45,7 +45,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.102"
+    ComputedModelVersion    "1.124"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -90,7 +90,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [338.0, 87.0, 819.0, 551.0]
+      Location		      [532.0, 53.0, 961.0, 565.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -99,7 +99,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[9]
+	Filter			[8]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -114,9 +114,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[765.0, 400.0]
-	ZoomFactor		[1.1578793099864797]
-	Offset			[-37.091070182576686, 37.667305203352925]
+	Extents			[907.0, 414.0]
+	ZoomFactor		[1.2195334635581019]
+	Offset			[-133.04563287714359, 10.520200209058885]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -136,11 +136,11 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAMjAAABqwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAOxAAABuQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAALF/////wAAAAAAAAAA/"
-      "////wEAAAL0/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAL9/////wAAAAAAAAAA/"
+      "////wEAAAMs/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -150,9 +150,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "DEHAEZE"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Dec 15 16:28:12 2017"
-  RTWModifiedTimeStamp	  435256090
-  ModelVersionFormat	  "1.%<AutoIncrement:102>"
+  LastModifiedDate	  "Sat Dec 16 16:09:41 2017"
+  RTWModifiedTimeStamp	  435341377
+  ModelVersionFormat	  "1.%<AutoIncrement:124>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1066,7 +1066,7 @@ Model {
   }
   System {
     Name		    "test"
-    Location		    [338, 87, 1157, 638]
+    Location		    [532, 53, 1493, 618]
     Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
@@ -1079,9 +1079,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "116"
+    ZoomFactor		    "122"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "16"
+    SIDHighWatermark	    "18"
     Block {
       BlockType		      Inport
       Name		      "w1"
@@ -1095,7 +1095,7 @@ Model {
       BlockType		      Inport
       Name		      "w2"
       SID		      "12"
-      Position		      [250, 195, 270, 215]
+      Position		      [-25, 200, -5, 220]
       ZOrder		      -2
       BackgroundColor	      "yellow"
       Port		      "2"
@@ -1105,7 +1105,7 @@ Model {
       BlockType		      Inport
       Name		      "u1"
       SID		      "2"
-      Position		      [360, 250, 380, 270]
+      Position		      [220, 255, 240, 275]
       ZOrder		      -3
       BackgroundColor	      "yellow"
       Port		      "3"
@@ -1116,7 +1116,7 @@ Model {
       Name		      "Sum"
       SID		      "3"
       Ports		      [2, 1]
-      Position		      [125, 255, 145, 275]
+      Position		      [95, 255, 115, 275]
       ZOrder		      -4
       IconShape		      "round"
       Inputs		      "|+-"
@@ -1126,7 +1126,7 @@ Model {
       Name		      "Sum1"
       SID		      "4"
       Ports		      [2, 1]
-      Position		      [420, 250, 440, 270]
+      Position		      [300, 255, 320, 275]
       ZOrder		      -5
       IconShape		      "round"
       Inputs		      "++|"
@@ -1135,18 +1135,18 @@ Model {
       BlockType		      TransferFcn
       Name		      "input_weighting1"
       SID		      "5"
-      Position		      [25, 245, 85, 285]
+      Position		      [25, 250, 70, 280]
       ZOrder		      -6
       BackgroundColor	      "yellow"
       NamePlacement	      "alternate"
-      Numerator		      "1"
-      Denominator	      "1"
+      Numerator		      "W4.num{1}"
+      Denominator	      "W4.den{1}"
     }
     Block {
       BlockType		      TransferFcn
       Name		      "input_weighting2"
       SID		      "14"
-      Position		      [290, 184, 365, 226]
+      Position		      [25, 194, 70, 226]
       ZOrder		      -7
       BackgroundColor	      "yellow"
       NamePlacement	      "alternate"
@@ -1157,7 +1157,7 @@ Model {
       BlockType		      TransferFcn
       Name		      "output_weighting1"
       SID		      "6"
-      Position		      [205, 113, 295, 147]
+      Position		      [310, 38, 360, 72]
       ZOrder		      -8
       BackgroundColor	      "lightBlue"
       NamePlacement	      "alternate"
@@ -1168,7 +1168,7 @@ Model {
       BlockType		      TransferFcn
       Name		      "output_weighting2"
       SID		      "7"
-      Position		      [430, 98, 520, 132]
+      Position		      [310, 103, 360, 137]
       ZOrder		      -9
       BackgroundColor	      "lightBlue"
       NamePlacement	      "alternate"
@@ -1180,8 +1180,8 @@ Model {
       Name		      "plant"
       SID		      "8"
       Ports		      [1, 1]
-      Position		      [475, 222, 575, 298]
-      ZOrder		      -10
+      Position		      [355, 227, 455, 303]
+      ZOrder		      2
       BackgroundColor	      "red"
       LibraryVersion	      "1.338"
       SourceBlock	      "cstblocks/LTI System"
@@ -1196,7 +1196,7 @@ Model {
       BlockType		      Outport
       Name		      "z1"
       SID		      "9"
-      Position		      [315, 120, 335, 140]
+      Position		      [385, 45, 405, 65]
       ZOrder		      -11
       BackgroundColor	      "lightBlue"
       IconDisplay	      "Port number"
@@ -1206,7 +1206,7 @@ Model {
       BlockType		      Outport
       Name		      "z2"
       SID		      "10"
-      Position		      [540, 105, 560, 125]
+      Position		      [385, 110, 405, 130]
       ZOrder		      -12
       BackgroundColor	      "lightBlue"
       Port		      "2"
@@ -1217,7 +1217,7 @@ Model {
       BlockType		      Outport
       Name		      "y1"
       SID		      "11"
-      Position		      [195, 255, 215, 275]
+      Position		      [165, 255, 185, 275]
       ZOrder		      -13
       BackgroundColor	      "lightBlue"
       Port		      "3"
@@ -1242,15 +1242,15 @@ Model {
       ZOrder		      3
       SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [25, 0]
+      Points		      [10, 0]
       Branch {
-	ZOrder			4
+	ZOrder			16
 	DstBlock		"y1"
 	DstPort			1
       }
       Branch {
 	ZOrder			5
-	Points			[0, -135]
+	Points			[0, -210]
 	DstBlock		"output_weighting1"
 	DstPort			1
       }
@@ -1259,9 +1259,9 @@ Model {
       ZOrder		      6
       SrcBlock		      "u1"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [23, 0]
       Branch {
-	ZOrder			7
+	ZOrder			17
 	DstBlock		"Sum1"
 	DstPort			2
       }
@@ -1273,17 +1273,17 @@ Model {
       }
     }
     Line {
-      ZOrder		      9
+      ZOrder		      29
       SrcBlock		      "Sum1"
       SrcPort		      1
       DstBlock		      "plant"
       DstPort		      1
     }
     Line {
-      ZOrder		      10
+      ZOrder		      30
       SrcBlock		      "plant"
       SrcPort		      1
-      Points		      [31, 0; 0, 78; -476, 0]
+      Points		      [42, 0; 0, 73; -397, 0]
       DstBlock		      "Sum"
       DstPort		      2
     }
@@ -1312,7 +1312,7 @@ Model {
       ZOrder		      14
       SrcBlock		      "input_weighting2"
       SrcPort		      1
-      Points		      [60, 0]
+      Points		      [235, 0]
       DstBlock		      "Sum1"
       DstPort		      1
     }

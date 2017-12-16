@@ -1,10 +1,10 @@
-function [] = updateWeightingPlot(weight_plot, weight_input, weight_output, opts_param)
+function [] = updateWeightingPlot(fig_weight, weight_input, weight_output, opts_param)
 % updateWeightingPlot - Update the Weighting Plots
 %
-% Syntax: updateWeightingPlot(weight_plot, weight_input, weight_output, opts_param)
+% Syntax: updateWeightingPlot(fig_weight, weight_input, weight_output, opts_param)
 %
 % Inputs:
-%    - weight_plot - Figure object for the weighting functions
+%    - fig_weight - Figure object for the weighting functions
 %    - opts_param  - Optionals parameters: structure with the following fields:
 %        - prev_weight (default: false)         - Set to true if there is some previously computed weighting functions
 %        - prev_weight_input                    - Previous weighting functions for the inputs
@@ -22,7 +22,7 @@ if exist('opts_param','var')
     end
 end
 
-figure(weight_plot);
+figure(fig_weight);
 clf;
 
 weight_input_number  = length(weight_input);
@@ -32,7 +32,7 @@ for output_i = (1:weight_output_number)
     for input_i = (1:weight_input_number)
         % Get the subplot with the good index
         subplot(weight_output_number, weight_input_number, (output_i-1)*weight_input_number+input_i);
-        
+
         % Test if there is any previous weighting functions()
         if (opts.prev_weight)
             if (output_i <= size(opts.prev_weight_output, 2) & input_i <= size(opts.prev_weight_input, 2))
@@ -42,7 +42,7 @@ for output_i = (1:weight_output_number)
                 hold on;
             end
         end
-        
+
         % Plot new weighting functions
         pond = sigma((weight_output(output_i)*weight_input(input_i)), opts.lsp, 1);
         semilogx(opts.lsp, 20*log10(pond), 'r-.');
