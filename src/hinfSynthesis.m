@@ -5,13 +5,13 @@ function [ss_k, sys_hinf] = hinfSynthesis(opts_param)
 %
 % Inputs:
 %    - opts_param - Optionals parameters: structure with the following fields:
-%        - simulink_name (default: test) - Name of the Simulink System
+%        - simulink_name (default: hinfModel) - Name of the Simulink System
 %
 % Outputs:
 %    - ss_k - State space representation of the generated controller
 
 %% Default values for opts
-opts = struct('simulink_name', 'test');
+opts = struct('simulink_name', 'hinfModel');
 
 %% Populate opts with input parameters
 if exist('opts_param','var')
@@ -50,13 +50,15 @@ sys_hinf_cond = ssbal(sys_hinf);
 sys_hinf_cond = pck(sys_hinf_cond.a, sys_hinf_cond.b, sys_hinf_cond.c, sys_hinf_cond.d);
 
 %% H-Infinity Synthesis using LMI Optimization
-p   = sys_hinf_cond;                        % Plant
+p   = sys_hinf_cond;                   % Plant
 r   = [n_contr_input, n_contr_output]; % System dimension
 g   = 0.9;                             % Target for the closed loop performance
-tol = [0, 0, 0];                       % Relative accuracy required on g
+tol = 1e-5;                            % Relative accuracy required on gamma
+options = [0, 0, 0];                   % Options
 
 %[gamma_opt, sys_k] = hinflmi(p, r, g, tol);
-[gamma_opt, sys_k] = hinflmi(sys_hinf_cond, [n_contr_input, n_contr_output], 0.9, 1e-5, [0,0,0]);
+%[~, sys_k] = hinflmi(sys_hinf_cond, [n_contr_input, n_contr_output], 0.9, 1e-5, [0,0,0]);
+[~, sys_k] = hinflmi(p, r, g, tol, options);
 % gamma_opt = best H-Infinity performance
 % sys_k     = Controller for gamma=gamma_opt
 

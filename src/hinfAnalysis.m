@@ -7,13 +7,13 @@ function [] = hinfAnalysis(ss_f_sys, ss_k, opts_param)
 %    - ss_f_sys   - State space representation of the plant
 %    - ss_k       - State space representation of the controller
 %    - opts_param - Optionals parameters: structure with the following fields:
-%        - simulink_name (default: test)        - Name of the Simulink System
+%        - simulink_name (default: hinfModel)   - Name of the Simulink System
 %        - is_ss_k_prev (default: false)        - Is there any previously generated controller
 %        - ss_k_prev                            - State space representation of the previously generated controller
 %        - lsp (default: logspace(-4, 8, 1000)) - Pulsation vector (rad/s)
 
 %% Default values for opts
-opts = struct(  'simulink_name', 'test',...
+opts = struct(  'simulink_name', 'hinfModel',...
                 'is_ss_k_prev', false, ...
                 'ss_k_prev', tf(1), ...
                 'lsp', logspace(-4, 8, 1000));

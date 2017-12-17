@@ -5,10 +5,10 @@ function [] = setPortNumbers(opts_param)
 %
 % Inputs:
 %    - opts_param - Optionals parameters: structure with the following fields:
-%        - simulink_name (default: test) - Name of the Simulink System
+%        - simulink_name (default: hinfModel) - Name of the Simulink System
 
 %% Default values for opts
-opts = struct('simulink_name', 'test');
+opts = struct('simulink_name', 'hinfModel');
 
 %% Populate opts with input parameters
 if exist('opts_param','var')

@@ -7,7 +7,7 @@ function [weight_input, weight_output] = hinfWeighting(fig_weight, weight_functi
 %    - fig_weight - Figure object for the weighting functions
 %    - weight_functions -
 %    - opts_param  - Optionals parameters: structure with the following fields:
-%        - simulink_name (default: test)        - Name of the Simulink System
+%        - simulink_name (default: hinfModel)   - Name of the Simulink System
 %        - prev_weight (default: false)         - Set to true if there is some previously computed weighting functions
 %        - prev_weight_input                    - Previous weighting functions for the inputs
 %        - prev_weight_output                   - Previous weighting functions for the outputs
@@ -18,7 +18,7 @@ function [weight_input, weight_output] = hinfWeighting(fig_weight, weight_functi
 %    - weight_output - Computed weighting functions for the outputs
 
 %% Default values for opts
-opts = struct(  'simulink_name', 'test',...
+opts = struct(  'simulink_name', 'hinfModel',...
                 'prev_weight', false, ...
                 'lsp', logspace(-4, 8, 1000));
 

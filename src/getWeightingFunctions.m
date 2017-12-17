@@ -6,12 +6,12 @@ function [weighting_fct] = getWeightingFunctions(name, weight_functions, opts_pa
 % Inputs:
 %    - name       - Possible value: 'input' or 'output'
 %    - opts_param - Optionals parameters: structure with the following fields:
-%        - simulink_name (default: test) - Name of the Simulink System
+%        - simulink_name (default: hinfModel) - Name of the Simulink System
 %
 % Outputs:
 %    - weighting_fct - Computed weighting functions for the input or output
 
-opts = struct('simulink_name', 'test');
+opts = struct('simulink_name', 'hinfModel');
 
 %% Populate opts with input parameters
 if exist('opts_param','var')
