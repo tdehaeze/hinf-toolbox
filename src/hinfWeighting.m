@@ -29,9 +29,6 @@ if exist('opts_param','var')
     end
 end
 
-%% Automatic Settings of the inputs and outputs numbers
-setPortNumbers(opts);
-
 %% Computation of the Weighting Functions
 weight_input  = getWeightingFunctions('input',  weight_functions, opts);
 weight_output = getWeightingFunctions('output', weight_functions, opts);

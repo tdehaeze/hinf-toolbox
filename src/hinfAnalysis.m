@@ -31,6 +31,8 @@ end
 
 % Open loop system
 ss_ol = ss_f_sys * ss_k;
+% TODO - Use series
+% ss_ol = series(ss_f_sys, ss_k, [3 4], [1 2])
 [n_outputs_ol, n_inputs_ol] = size(ss_ol);
 
 if opts.is_ss_k_prev

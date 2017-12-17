@@ -20,7 +20,7 @@ end
             
 %% Redheffer star-product: connect the plant with the controller
 [n_outputs, n_inputs] = size(ss_k);
-closed_loop_sys = lft(ss_sys, ss_k, n_inputs, n_outputs);
+closed_loop_sys = lft(ss_sys, ss_k, n_outputs, n_inputs);
 
 weight_input_number  = length(weight_input);
 weight_output_number = length(weight_output);
