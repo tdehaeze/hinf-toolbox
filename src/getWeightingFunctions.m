@@ -32,12 +32,14 @@ weighting_fct = tf([n, 1]);
 
 % For each system, get the transfer function associated
 for i = 1:n
-    % TODO - Verify if its a property of weight_functions (assert)
     block_name = sys_names(i);
     [tf_name, ~] = Simulink.Mask.get(block_name{1}).Parameters.Value;
+    input_name = get_param(sys_names(i), 'InputSignalNames');
 %     num = get_param(sys_names(i), 'Numerator');
 %     tf_name = num{1}(1:end-7);
     weighting_fct(i) = weight_functions.(tf_name);
+    weighting_fct(i).InputName = input_name{1}{1};
+    weighting_fct.UserData{i} = tf_name;
 end
 
 end

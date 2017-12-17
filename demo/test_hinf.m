@@ -8,8 +8,8 @@ f_sys = 41.25/(s*(s/66.9)+1);
 
 %% Weighting functions
 W1 = tf(ponde_font_ss(-60, 6, 10, 'dB'));
-W2 = tf(1e-6);
-W3 = tf(1e-6);
+W2 = tf(1e-4);
+W3 = tf(1e-4);
 W4 = tf(1);
 
 weight_functions = struct(...
