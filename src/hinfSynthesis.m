@@ -50,17 +50,12 @@ sys_hinf_cond = ssbal(sys_hinf);
 sys_hinf_cond = pck(sys_hinf_cond.a, sys_hinf_cond.b, sys_hinf_cond.c, sys_hinf_cond.d);
 
 %% H-Infinity Synthesis using LMI Optimization
-p   = sys_hinf_cond;                   % Plant
-r   = [n_contr_input, n_contr_output]; % System dimension
-g   = 0.9;                             % Target for the closed loop performance
-tol = 1e-5;                            % Relative accuracy required on gamma
-options = [0, 0, 0];                   % Options
-
-%[gamma_opt, sys_k] = hinflmi(p, r, g, tol);
-%[~, sys_k] = hinflmi(sys_hinf_cond, [n_contr_input, n_contr_output], 0.9, 1e-5, [0,0,0]);
-[~, sys_k] = hinflmi(p, r, g, tol, options);
-% gamma_opt = best H-Infinity performance
-% sys_k     = Controller for gamma=gamma_opt
+sys_k = hinfsyn(ys_hinf_cond, n_contr_input, n_contr_output, ...
+                'GMIN', 0.5, ...
+                'GMAX', 20, ...
+                'TOLGAM', 1e-5, ...
+                'METHOD', 'lmi', ...
+                'DISPLAY', 'off');
 
 %% Export the controller as a state-space object
 [Ak, Bk, Ck, Dk] = unpck(sys_k);

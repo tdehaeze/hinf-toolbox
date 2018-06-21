@@ -8,10 +8,10 @@ function [] = plotWeightingResult(fig_weight, ss_sys, ss_k, weight_input, weight
 %
 
 %% Default values for opts
-opts = struct(  'prev_weight', false, ...
-                'lsp', logspace(-4, 8, 1000));
+opts = struct('prev_weight', false, ...
+              'lsp', logspace(-4, 8, 1000));
 
-            %% Populate opts with input parameters
+%% Populate opts with input parameters
 if exist('opts_param','var')
     for opt = fieldnames(opts_param)'
         opts.(opt{1}) = opts_param.(opt{1});
@@ -42,12 +42,14 @@ end
 
 ss_t = minreal(output_weight_mat*closed_loop_sys*intput_weight_mat);
 
+%%
 figure(fig_weight);
 
 for output_i = (1:weight_output_number)
     for input_i = (1:weight_input_number)
         subplot(weight_output_number, weight_input_number, (output_i-1)*weight_input_number+input_i);
 
+        % TODO
         % if exist('ss_t_prec')
         %     if ( counter <= size(ss_t_prec,1) & compteur <= size(ss_t_prec,2))
         %         % tester si les ponderations existaient precedemment)

@@ -1,6 +1,3 @@
-* H-Infinity Toolbox
-
-** Buttons to add
-*** Clear all (weighting, ...)
+#+TITLE: H-Infinity Toolbox
 
 

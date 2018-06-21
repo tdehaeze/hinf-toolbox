@@ -1,6 +1,7 @@
 function [hinf_api] = hinfUi(weight_fct_param, opts_param)
 
 % TODO - documentation
+%      - Add lspunit to opts: Hz or Rad/s
 
 %% Default values for opts
 opts = struct(  'simulink_name', 'hinfModel',...
@@ -71,17 +72,21 @@ end
 function [] = btnSynthesisCallback(~, ~)
     options = struct('simulink_name', opts.simulink_name);
     [ss_k, ss_f_sys] = hinfSynthesis(options);
-    options.prev_weight = is_ss_k_prev;
-    options.lsp = opts.lsp;
-    plotWeightingResult(fig_weight, ss_f_sys, ss_k, prev_weight_input, prev_weight_output, options)
-    is_ss_k_prev = true;
+    if ~isempty(ss_k)
+        options.prev_weight = is_ss_k_prev;
+        options.lsp = opts.lsp;
+        plotWeightingResult(fig_weight, ss_f_sys, ss_k, prev_weight_input, prev_weight_output, options)
+        is_ss_k_prev = true;
+    end
 end
 
 function [] = btnAnalysisCallback(~, ~)
-    options = opts;
-    options.is_ss_k_prev = is_ss_k_prev;
-    options.ss_k_prev = ss_k;
-    hinfAnalysis(ss_f_sys, ss_k, options);
+    if ~isempty(ss_k)
+        options = opts;
+        options.is_ss_k_prev = is_ss_k_prev;
+        options.ss_k_prev = ss_k;
+        hinfAnalysis(ss_f_sys, ss_k, options);
+    end
 end
 
 %% Create figure with the 3 buttons

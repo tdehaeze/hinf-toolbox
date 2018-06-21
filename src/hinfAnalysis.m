@@ -61,7 +61,7 @@ end
 
 %% Open Loop Bode Plot
 if opts.plot_bode_ol
-    figure(fig_bode_ol); clf;
+    figure(opts.fig_bode_ol); clf;
     for i_output_ol = 1:n_outputs_ol
         for i_input_ol = 1:n_inputs_ol
             subplot(n_outputs_ol, n_inputs_ol, (i_output_ol-1)*n_inputs_ol+i_input_ol);
